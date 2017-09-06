@@ -1,0 +1,38 @@
+<h1>cars details</h1>
+<button class="{{classGreen}}" (click)="like()">like this car</button>
+<div>
+  {{car.make}} {{car.model}} -{{car.likes}}
+  <img [src]="car.image"/>
+</div>
+
+<div>
+  <form #reviewForm="ngForm" (submit)="submitReview()">
+    <div class="form-group">
+      <label for="rating" >rating</label>
+      <select type="text" id="rating"name="rating" [(ngModel)]="review.rating" >
+        <option *ngFor="let number of [1,2,3,4,5]"[value]="number">{{number}}</option>
+      </select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="comment" >comment</label>
+      <textarea type="text" id="comment"name="comment" [(ngModel)]="review.comment" >{{review.comment}}</textarea>
+    </div>
+
+
+    <button type="submit"
+            [disabled]="!reviewForm.form.valid  "
+    >Submit</button>
+
+  </form>
+
+
+</div>
+
+<div>
+<div *ngFor="let review of reviews">
+  {{review.rating}}<span *ngIf="review.comment">{{review.comment}}</span>
+  <h1>tuk</h1>
+</div>
+</div>

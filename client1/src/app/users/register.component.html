@@ -1,0 +1,39 @@
+
+
+<form class="container" style="width: 300px" #registerForm="ngForm" (submit)="register()">
+  <h1>Register User</h1>
+  <div class="form-group">
+    <label for="name" >Name</label>
+    <input class="form-control " type="text" id="name" name="name" [(ngModel)]="user.name" #name="ngModel" required/>
+    <span [hidden]="name.valid  || name.pristine">
+      Name is required!
+    </span>
+  </div>
+
+  <div class="form-group">
+    <label for="email" >email</label>
+    <input class="form-control" type="text" id="email"name="email" [(ngModel)]="user.email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="password" >password</label>
+    <input class="form-control" type="password" id="password" name="password" [(ngModel)]="user.password"
+           #password="ngModel"
+           required>
+  </div>
+
+  <div class="form-group">
+    <label for="ConfirmPassword" >ConfirmPassword</label>
+    <input class="form-control" type="password" id="ConfirmPassword" name="confirmPassword" [(ngModel)]="user.confirmPassword"
+           #confirmPassword="ngModel"
+           required>
+
+    <span [hidden]="password.value===confirmPassword.value  || confirmPassword.pristine">
+      Name is required!
+    </span>
+  </div>
+  <button type="submit"
+  [disabled]="!registerForm.form.valid || password.value!==confirmPassword.value "
+  >Submit</button>
+
+</form>

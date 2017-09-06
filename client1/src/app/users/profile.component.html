@@ -1,0 +1,9 @@
+<h1>my profile</h1>
+<div>
+  <div  *ngFor="let car of cars">
+    <div class="delete" >{{car.make}} {{car.model}}</div>
+
+    <img [src]="car.image" style="width: 200px"/>
+    <button class="alert alert-danger" (click)="delete(car.id)" >
+    delete</button></div>
+</div>

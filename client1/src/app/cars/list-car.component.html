@@ -1,0 +1,29 @@
+
+
+
+
+<button [disabled]="page===1"(click)="prevPage()">Prev</button>
+<button  [disabled]="cars.length===0" (click)="nextPage()">Next</button>
+
+
+<div class="jumbotron text-center">
+  <h1> list cars</h1>
+  <div>
+    <input type="text" [(ngModel)]="searchText" name="searchText">
+    <button (click)="search()">Search</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+      <div class="col-sm-4" *ngFor="let car of cars">
+        <h1>{{car.make}}</h1>
+        <h2>{{car.model}}</h2>
+        <img [src]="car.image" class="img-rounded" alt="Cinque Terre" width="250" height="236"/>
+        <a routerLink="/cars/details/{{car.id}}">See more</a>
+
+    </div>
+
+  </div>
+</div>

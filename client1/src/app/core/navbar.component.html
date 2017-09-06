@@ -1,0 +1,21 @@
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="/">Home</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a routerLink="/cars/all">all cars</a></li>
+      <div class="nav navbar-nav" *ngIf="authenticated">
+      <li><a routerLink="/cars/add">add car</a></li>
+      <li><a routerLink="/users/profile">{{username}}</a></li>
+      <li> <a href="javascript:void(0)" (click)="logout()">Logout</a></li>
+      </div>
+      <div class="nav navbar-nav" *ngIf="!authenticated">
+       <li><a routerLink="/users/register">Register</a></li>
+       <li> <a routerLink="/users/login">Login</a></li>
+      </div>
+    </ul>
+  </div>
+</nav>
